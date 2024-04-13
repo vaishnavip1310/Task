@@ -1,0 +1,22 @@
+<h2>Search for GitHub Repositories</h2>
+<form (submit)="search()">
+  <label for="username">GitHub Username:</label>
+  <input type="text" id="username" name="username" [(ngModel)]="username">
+  <button type="submit">Search</button>
+</form>
+<table *ngIf="repos">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let repo of repos">
+      <td>{{ repo.name }}</td>
+      <td>{{ repo.description }}</td>
+      <td><a href="{{ repo.html_url }}">View</a></td>
+    </tr>
+  </tbody>
+</table>
